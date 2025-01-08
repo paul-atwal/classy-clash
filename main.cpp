@@ -69,6 +69,15 @@ int main()
 
         goblin.tick(GetFrameTime());
 
+        // check collision between sword and enemy 
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            if(CheckCollisionRecs(goblin.getCollisionRec(), knight.getCollisionRec()))
+            {
+                goblin.setAlive(false);
+            }
+        }
+
         EndDrawing();
     }
     CloseWindow();
